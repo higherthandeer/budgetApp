@@ -1,0 +1,11 @@
+<resources>
+    <color name="obs_paper">#FBFCF9</color>
+    <color name="obs_ink">#24372F</color>
+    <color name="obs_muted">#76826D</color>
+    <color name="obs_line">#E8EDE1</color>
+    <color name="obs_green">#355D44</color>
+    <color name="obs_mint">#E8F0DD</color>
+    <color name="obs_amber">#8B682E</color>
+    <color name="obs_amber_bg">#FFF5E3</color>
+    <color name="obs_white">#FFFFFF</color>
+</resources>

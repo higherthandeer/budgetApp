@@ -136,6 +136,7 @@ assertFalse(NotificationPackages.isSupported(null));
 **Files:** Create `J/processing/{LedgerTypes,Money,TransactionDraft,LedgerFilter,TimeWindows}.java`；Test `U/processing/{MoneyTest,TimeWindowsTest}.java`。
 
 **Interfaces:**
+
 - #### Consumes: Java 标准库，无 Android 服务/Room。
 - Produces: `LedgerTypes` 嵌套枚举 Kind(EXPENSE/INCOME)、BookingState(POSTED/DELETED)、SourceType(NOTIFICATION/MANUAL)、ProcessState(NEW/DONE/REVIEW/IGNORED/ERROR)、TimePrecision(DAY/MINUTE/SECOND)、CategoryOrigin(USER/RULE/DEFAULT)。实体用同名字符串持久化，不存 ordinal。
 - Produces: LedgerTypes 的未分类固定 UUID：UNCATEGORIZED_EXPENSE=`00000000-0000-0000-0000-000000000001`，UNCATEGORIZED_INCOME=`00000000-0000-0000-0000-000000000002`，分类默认值必须与收支方向一致。
@@ -516,5 +517,5 @@ assertEquals(8000L, db.ledgerDao().find(editedTxId).amountMinor);
 
 建议 **Native：在当前会话按任务实施**，因为数据模型、去重、核对和统计接口紧密关联，个人项目优先减少每项重新交接的成本。也可选择 Subagent-driven：每项由新实现者及独立审阅者检查，成本更高但检查更细。
 
-先请用户审阅本计划并选择执行方式。选 Native 后使用 superpowers:executing-plans；选 Subagent-driven 后使用 superpowers:subagent-driven-development。未得到该交接确认前，本轮只交付计划，不修改工程源码或安装依赖。
+先请用户审阅本计划并选择执行方式。选 Native 后使用 superpowers:executing-plans；选 Subagent-driven 后使用 superpowers:subagent-driven-development。未得到该交接确认前，本轮只交付计划，不修改工程源码或安装依赖。git remote add origin https://github.com/higherthandeer/budgetApp.git
 

@@ -19,12 +19,22 @@ android {
     }
 
     buildTypes {
+        create("qa") {
+            initWith(getByName("debug"))
+            applicationIdSuffix = ".testing"
+            matchingFallbacks += listOf("debug")
+        }
         release {
             optimization {
                 enable = true
                 packageScope = setOf("androidx.**", "kotlin.**", "kotlinx.**")
             }
         }
+    }
+    testBuildType = "qa"
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -33,11 +43,13 @@ android {
 }
 
 dependencies {
-    implementation(libs.activity.ktx)
+    implementation(libs.activity)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.test.runner)
+    androidTestImplementation(libs.test.core)
 }
