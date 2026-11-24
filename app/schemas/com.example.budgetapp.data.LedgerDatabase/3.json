@@ -1,0 +1,675 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "33d98531e223c66f72db1f9689075603",
+    "entities": [
+      {
+        "tableName": "source_event",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `source_type` TEXT NOT NULL, `provider` TEXT NOT NULL, `account_scope_id` TEXT NOT NULL, `package_name` TEXT, `app_version` TEXT, `captured_at_ms` INTEGER NOT NULL, `source_time_raw` TEXT, `raw_payload` TEXT, `raw_expires_at_ms` INTEGER, `payload_hash` TEXT, `event_key` TEXT NOT NULL, `parser_id` TEXT, `parser_version` TEXT, `parsed_json` TEXT, `candidate_json` TEXT, `corrected_candidate_json` TEXT, `process_state` TEXT NOT NULL, `error_code` TEXT, `transaction_id` TEXT, `match_method` TEXT, `linked_at` INTEGER, `review_reason_codes_json` TEXT, `review_candidates_json` TEXT, `review_resolution` TEXT, `resolved_at` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`transaction_id`) REFERENCES `ledger_transaction`(`id`) ON UPDATE RESTRICT ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceType",
+            "columnName": "source_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provider",
+            "columnName": "provider",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accountScopeId",
+            "columnName": "account_scope_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "package_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "appVersion",
+            "columnName": "app_version",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "capturedAtMs",
+            "columnName": "captured_at_ms",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceTimeRaw",
+            "columnName": "source_time_raw",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "rawPayload",
+            "columnName": "raw_payload",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "rawExpiresAtMs",
+            "columnName": "raw_expires_at_ms",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "payloadHash",
+            "columnName": "payload_hash",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "eventKey",
+            "columnName": "event_key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parserId",
+            "columnName": "parser_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "parserVersion",
+            "columnName": "parser_version",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "parsedJson",
+            "columnName": "parsed_json",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "candidateJson",
+            "columnName": "candidate_json",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "correctedCandidateJson",
+            "columnName": "corrected_candidate_json",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "processState",
+            "columnName": "process_state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "errorCode",
+            "columnName": "error_code",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "transactionId",
+            "columnName": "transaction_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "matchMethod",
+            "columnName": "match_method",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "linkedAt",
+            "columnName": "linked_at",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "reviewReasonCodesJson",
+            "columnName": "review_reason_codes_json",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "reviewCandidatesJson",
+            "columnName": "review_candidates_json",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "reviewResolution",
+            "columnName": "review_resolution",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "resolvedAt",
+            "columnName": "resolved_at",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_source_event_transaction_id",
+            "unique": false,
+            "columnNames": [
+              "transaction_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_source_event_transaction_id` ON `${TABLE_NAME}` (`transaction_id`)"
+          },
+          {
+            "name": "index_source_event_source_type_event_key",
+            "unique": true,
+            "columnNames": [
+              "source_type",
+              "event_key"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_source_event_source_type_event_key` ON `${TABLE_NAME}` (`source_type`, `event_key`)"
+          },
+          {
+            "name": "index_source_event_process_state_captured_at_ms",
+            "unique": false,
+            "columnNames": [
+              "process_state",
+              "captured_at_ms"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_source_event_process_state_captured_at_ms` ON `${TABLE_NAME}` (`process_state`, `captured_at_ms`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "ledger_transaction",
+            "onDelete": "RESTRICT",
+            "onUpdate": "RESTRICT",
+            "columns": [
+              "transaction_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "ledger_transaction",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `kind` TEXT NOT NULL, `amount_minor` INTEGER NOT NULL, `currency` TEXT NOT NULL, `occurred_at_ms` INTEGER NOT NULL, `time_precision` TEXT NOT NULL, `source_zone_id` TEXT NOT NULL, `merchant_raw` TEXT NOT NULL, `merchant_normalized` TEXT NOT NULL, `provider` TEXT NOT NULL, `account_scope_id` TEXT NOT NULL, `pay_method_raw` TEXT, `category_id` TEXT NOT NULL, `category_origin` TEXT NOT NULL, `applied_rule_id` TEXT, `booking_state` TEXT NOT NULL, `deleted_at` INTEGER, `user_locked_fields` TEXT NOT NULL, `note` TEXT NOT NULL, `revision` INTEGER NOT NULL, `created_at` INTEGER NOT NULL, `updated_at` INTEGER NOT NULL, `deletion_reason` TEXT, `merged_into_id` TEXT, `recent_previous_values_json` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`category_id`) REFERENCES `category`(`id`) ON UPDATE RESTRICT ON DELETE RESTRICT , FOREIGN KEY(`applied_rule_id`) REFERENCES `category_rule`(`id`) ON UPDATE RESTRICT ON DELETE RESTRICT , FOREIGN KEY(`merged_into_id`) REFERENCES `ledger_transaction`(`id`) ON UPDATE RESTRICT ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kind",
+            "columnName": "kind",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amountMinor",
+            "columnName": "amount_minor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currency",
+            "columnName": "currency",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "occurredAtMs",
+            "columnName": "occurred_at_ms",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timePrecision",
+            "columnName": "time_precision",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceZoneId",
+            "columnName": "source_zone_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "merchantRaw",
+            "columnName": "merchant_raw",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "merchantNormalized",
+            "columnName": "merchant_normalized",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provider",
+            "columnName": "provider",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accountScopeId",
+            "columnName": "account_scope_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "payMethodRaw",
+            "columnName": "pay_method_raw",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "categoryId",
+            "columnName": "category_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryOrigin",
+            "columnName": "category_origin",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appliedRuleId",
+            "columnName": "applied_rule_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "bookingState",
+            "columnName": "booking_state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deletedAt",
+            "columnName": "deleted_at",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "userLockedFields",
+            "columnName": "user_locked_fields",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "revision",
+            "columnName": "revision",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "created_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updated_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deletionReason",
+            "columnName": "deletion_reason",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "mergedIntoId",
+            "columnName": "merged_into_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "recentPreviousValuesJson",
+            "columnName": "recent_previous_values_json",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_ledger_transaction_category_id",
+            "unique": false,
+            "columnNames": [
+              "category_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ledger_transaction_category_id` ON `${TABLE_NAME}` (`category_id`)"
+          },
+          {
+            "name": "index_ledger_transaction_applied_rule_id",
+            "unique": false,
+            "columnNames": [
+              "applied_rule_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ledger_transaction_applied_rule_id` ON `${TABLE_NAME}` (`applied_rule_id`)"
+          },
+          {
+            "name": "index_ledger_transaction_merged_into_id",
+            "unique": false,
+            "columnNames": [
+              "merged_into_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ledger_transaction_merged_into_id` ON `${TABLE_NAME}` (`merged_into_id`)"
+          },
+          {
+            "name": "index_ledger_transaction_booking_state_currency_occurred_at_ms",
+            "unique": false,
+            "columnNames": [
+              "booking_state",
+              "currency",
+              "occurred_at_ms"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ledger_transaction_booking_state_currency_occurred_at_ms` ON `${TABLE_NAME}` (`booking_state`, `currency`, `occurred_at_ms`)"
+          },
+          {
+            "name": "index_ledger_transaction_category_id_occurred_at_ms",
+            "unique": false,
+            "columnNames": [
+              "category_id",
+              "occurred_at_ms"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ledger_transaction_category_id_occurred_at_ms` ON `${TABLE_NAME}` (`category_id`, `occurred_at_ms`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "category",
+            "onDelete": "RESTRICT",
+            "onUpdate": "RESTRICT",
+            "columns": [
+              "category_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "category_rule",
+            "onDelete": "RESTRICT",
+            "onUpdate": "RESTRICT",
+            "columns": [
+              "applied_rule_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "ledger_transaction",
+            "onDelete": "RESTRICT",
+            "onUpdate": "RESTRICT",
+            "columns": [
+              "merged_into_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "category",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `flow_scope` TEXT NOT NULL, `sort_order` INTEGER NOT NULL, `archived` INTEGER NOT NULL, `icon_key` TEXT NOT NULL DEFAULT 'category', PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flowScope",
+            "columnName": "flow_scope",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sortOrder",
+            "columnName": "sort_order",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "archived",
+            "columnName": "archived",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "iconKey",
+            "columnName": "icon_key",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'category'"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "category_rule",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `provider` TEXT, `scope_filter` TEXT, `match_type` TEXT NOT NULL, `merchant_pattern` TEXT NOT NULL, `category_id` TEXT NOT NULL, `priority` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `version` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`category_id`) REFERENCES `category`(`id`) ON UPDATE RESTRICT ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provider",
+            "columnName": "provider",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "scopeFilter",
+            "columnName": "scope_filter",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "matchType",
+            "columnName": "match_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "merchantPattern",
+            "columnName": "merchant_pattern",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryId",
+            "columnName": "category_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "priority",
+            "columnName": "priority",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "version",
+            "columnName": "version",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_category_rule_category_id",
+            "unique": false,
+            "columnNames": [
+              "category_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_category_rule_category_id` ON `${TABLE_NAME}` (`category_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "category",
+            "onDelete": "RESTRICT",
+            "onUpdate": "RESTRICT",
+            "columns": [
+              "category_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "transaction_identity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `transaction_id` TEXT NOT NULL, `provider` TEXT NOT NULL, `account_scope_id` TEXT NOT NULL, `id_kind` TEXT NOT NULL, `id_namespace` TEXT NOT NULL, `external_id` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`transaction_id`) REFERENCES `ledger_transaction`(`id`) ON UPDATE RESTRICT ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transactionId",
+            "columnName": "transaction_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provider",
+            "columnName": "provider",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accountScopeId",
+            "columnName": "account_scope_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idKind",
+            "columnName": "id_kind",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idNamespace",
+            "columnName": "id_namespace",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "externalId",
+            "columnName": "external_id",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_transaction_identity_transaction_id",
+            "unique": false,
+            "columnNames": [
+              "transaction_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transaction_identity_transaction_id` ON `${TABLE_NAME}` (`transaction_id`)"
+          },
+          {
+            "name": "index_transaction_identity_provider_account_scope_id_id_kind_id_namespace_external_id",
+            "unique": true,
+            "columnNames": [
+              "provider",
+              "account_scope_id",
+              "id_kind",
+              "id_namespace",
+              "external_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_transaction_identity_provider_account_scope_id_id_kind_id_namespace_external_id` ON `${TABLE_NAME}` (`provider`, `account_scope_id`, `id_kind`, `id_namespace`, `external_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "ledger_transaction",
+            "onDelete": "RESTRICT",
+            "onUpdate": "RESTRICT",
+            "columns": [
+              "transaction_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '33d98531e223c66f72db1f9689075603')"
+    ]
+  }
+}

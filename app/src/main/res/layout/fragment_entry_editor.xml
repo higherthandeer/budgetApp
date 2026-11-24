@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:fillViewport="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- 标题 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="记一笔"
+                android:textColor="@color/entry_title_green"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/entry_close"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="关闭"
+                android:src="@drawable/baseline_close" />
+
+        </LinearLayout>
+
+        <!-- 横向收支切换 -->
+        <RadioGroup
+            android:id="@+id/entry_kind"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_entry_segment"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/entry_expense"
+                style="@style/EntryKindOption"
+                android:text="@string/entry_expense" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/entry_income"
+                style="@style/EntryKindOption"
+                android:text="@string/entry_income" />
+
+        </RadioGroup>
+
+        <!-- 金额 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="¥"
+                android:textColor="#8A9B7C"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/entry_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="输入金额"
+                android:inputType="numberDecimal"
+                android:maxLength="12"
+                android:minHeight="64dp"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:textColor="#294A36"
+                android:textColorHint="#CED7C4"
+                android:textSize="37sp" />
+
+        </LinearLayout>
+
+        <View style="@style/EntryDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/entry_category_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/entry_category_expense"
+                android:textColor="#4B6540"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/entry_category_add"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/entry_category_add"
+                android:textAllCaps="false"
+                android:textColor="#355D44"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 分类由 Java 根据数据库动态填充 -->
+        <GridLayout
+            android:id="@+id/entry_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="18dp"
+            android:columnCount="4" />
+
+        <TextView
+            android:id="@+id/entry_category_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <View style="@style/EntryDivider" />
+
+        <!-- 日期 -->
+        <LinearLayout style="@style/EntryFieldRow">
+
+            <TextView
+                style="@style/EntryFieldLabel"
+                android:labelFor="@id/entry_date"
+                android:text="@string/entry_date" />
+
+            <EditText
+                android:id="@+id/entry_date"
+                style="@style/EntryFieldInput"
+                android:clickable="true"
+                android:focusable="false"
+                android:inputType="none" />
+
+        </LinearLayout>
+
+        <View style="@style/EntryDivider" />
+
+        <!-- 商家 -->
+        <LinearLayout style="@style/EntryFieldRow">
+
+            <TextView
+                style="@style/EntryFieldLabel"
+                android:labelFor="@id/entry_merchant"
+                android:text="@string/entry_merchant" />
+
+            <EditText
+                android:id="@+id/entry_merchant"
+                style="@style/EntryFieldInput"
+                android:hint="@string/entry_merchant_hint"
+                android:inputType="text"
+                android:maxLength="40" />
+
+        </LinearLayout>
+
+        <View style="@style/EntryDivider" />
+
+        <!-- 备注 -->
+        <LinearLayout style="@style/EntryFieldRow">
+
+            <TextView
+                style="@style/EntryFieldLabel"
+                android:labelFor="@id/entry_note"
+                android:text="@string/entry_note" />
+
+            <EditText
+                android:id="@+id/entry_note"
+                style="@style/EntryFieldInput"
+                android:hint="@string/entry_note_hint"
+                android:inputType="text"
+                android:maxLength="80" />
+
+        </LinearLayout>
+
+        <View style="@style/EntryDivider" />
+
+        <CheckBox
+            android:id="@+id/entry_rule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:buttonTint="#355D44"
+            android:minHeight="48dp"
+            android:text="@string/entry_category_hint"
+            android:textColor="#76826D"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/entry_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityLiveRegion="polite"
+            android:textColor="#B34E43"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/entry_save"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/entry_save"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            app:backgroundTint="#355D44"
+            app:cornerRadius="12dp" />
+
+        <!-- 仅编辑已有账单时显示 -->
+        <Button
+            android:id="@+id/entry_delete"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="删除账单"
+            android:textColor="#B34E43" />
+
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:paddingHorizontal="21dp" android:paddingTop="14dp" android:paddingBottom="24dp">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="22dp" android:minHeight="39dp">
+<TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="待核对" android:textSize="25sp" android:textColor="@color/obs_ink" android:fontFamily="sans-serif-medium" android:layout_weight="1">
+</TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="集中处理" android:textSize="12sp" android:textColor="@color/obs_muted">
+</TextView>
+</LinearLayout>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="只有信息明确的账单才会入账。\n这里的记录暂不计入消费或收入。" android:textSize="12sp" android:textColor="@color/obs_muted" android:lineSpacingExtra="5dp" android:layout_marginBottom="20dp">
+</TextView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/review_empty" android:textSize="12sp" android:textColor="@color/obs_muted" android:id="@+id/review_empty">
+</TextView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="12sp" android:textColor="@color/obs_red" android:accessibilityLiveRegion="polite" android:id="@+id/review_error">
+</TextView>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/review_merge" android:text="@string/review_merge" style="@style/PreviewButton">
+</Button>
+<androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent" android:layout_height="0dp" android:id="@+id/review_list" android:layout_weight="1" android:clipToPadding="false">
+</androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

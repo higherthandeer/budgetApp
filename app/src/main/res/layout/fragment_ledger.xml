@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:paddingHorizontal="21dp" android:paddingTop="14dp" android:paddingBottom="12dp" android:background="@color/obs_paper">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="39dp" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="22dp">
+  <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/ledger_title" android:textSize="25sp" android:textColor="@color/obs_ink" android:fontFamily="sans-serif-medium"/>
+  <ImageButton android:id="@+id/ledger_settings" android:layout_width="39dp" android:layout_height="39dp" android:src="@drawable/ic_ledger_search" android:background="@drawable/ledger_search_bg" android:padding="9dp" android:contentDescription="搜索账单"/>
+ </LinearLayout>
+ <EditText android:id="@+id/ledger_search" android:layout_width="match_parent" android:layout_height="48dp" android:inputType="text" android:singleLine="true" android:hint="搜索商家或备注" android:textSize="16sp" android:visibility="gone"/>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="44dp" android:orientation="horizontal" android:gravity="center_vertical">
+  <Button android:id="@+id/ledger_month" style="@style/PreviewButton" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:gravity="start|center_vertical" android:paddingHorizontal="0dp" android:textColor="@color/obs_ink" android:textSize="13sp" android:text="月份 ▾"/>
+  <TextView android:id="@+id/ledger_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="10sp" android:textColor="@color/obs_muted"/>
+ </LinearLayout>
+ <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none" android:layout_marginTop="8dp" android:fillViewport="false">
+  <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+   <com.google.android.material.button.MaterialButton android:id="@+id/ledger_all" style="@style/LedgerFilterButton" android:text="全部"/>
+   <com.google.android.material.button.MaterialButton android:id="@+id/ledger_expense" style="@style/LedgerFilterButton" android:layout_marginStart="7dp" android:text="支出"/>
+   <com.google.android.material.button.MaterialButton android:id="@+id/ledger_income" style="@style/LedgerFilterButton" android:layout_marginStart="7dp" android:text="收入"/>
+   <com.google.android.material.button.MaterialButton android:id="@+id/ledger_category" style="@style/LedgerFilterButton" android:layout_marginStart="7dp" android:text="分类 ▾" android:maxWidth="150dp" android:maxLines="1" android:ellipsize="end"/>
+  </LinearLayout>
+ </HorizontalScrollView>
+ <LinearLayout android:id="@+id/ledger_filter_scope" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:visibility="gone">
+  <TextView android:id="@+id/ledger_filter_description" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:textColor="@color/obs_muted" android:textSize="11sp"/>
+  <Button android:id="@+id/ledger_clear" style="@style/PreviewButton" android:layout_width="wrap_content" android:layout_height="44dp" android:text="清除筛选" android:textSize="11sp"/>
+ </LinearLayout>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:background="@drawable/ledger_summary_bg" android:padding="16dp" android:layout_marginTop="17dp" android:layout_marginBottom="17dp">
+  <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+   <TextView android:id="@+id/ledger_summary_label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="支出合计" android:textColor="@color/obs_muted" android:textSize="10sp"/>
+   <TextView android:id="@+id/ledger_total" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textColor="@color/obs_ink" android:textSize="18sp" android:fontFamily="sans-serif-medium"/>
+  </LinearLayout>
+  <TextView android:id="@+id/ledger_summary_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="end" android:textColor="@color/obs_muted" android:textSize="10sp" android:lineSpacingExtra="4dp"/>
+ </LinearLayout>
+ <TextView android:id="@+id/ledger_empty" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="24dp" android:text="@string/ledger_empty" android:textColor="@color/obs_muted" android:visibility="gone"/>
+ <androidx.recyclerview.widget.RecyclerView android:id="@+id/ledger_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" android:paddingBottom="12dp"/>
+ <Button android:id="@+id/ledger_undo" style="@style/PreviewButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ledger_undo" android:visibility="gone"/>
+ <Button android:id="@+id/ledger_add" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+ <Button android:id="@+id/ledger_review" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+</LinearLayout>

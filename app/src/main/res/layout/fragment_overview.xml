@@ -1,0 +1,56 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="21dp" android:paddingTop="14dp" android:paddingBottom="24dp">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="22dp" android:minHeight="39dp">
+<TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="简账" android:textSize="25sp" android:textColor="@color/obs_ink" android:fontFamily="sans-serif-medium" android:layout_weight="1">
+</TextView>
+<ImageButton android:layout_width="39dp" android:layout_height="39dp" android:id="@+id/ledger_settings" android:src="@drawable/baseline_settings" android:background="@drawable/obs_mint_tile" android:padding="10dp" android:contentDescription="采集与设置">
+</ImageButton>
+</LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/obs_hero" android:padding="23dp" android:layout_marginBottom="23dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/overview_balance_title" android:textSize="13sp" android:textColor="@color/obs_mint"/>
+    <TextView android:id="@+id/overview_balance" android:layout_width="match_parent" android:layout_height="72dp" android:gravity="center_vertical" android:text="@string/stats_unavailable" android:textColor="@color/obs_white" android:textSize="42sp" android:fontFamily="sans-serif-medium" android:maxLines="1" android:autoSizeTextType="uniform" android:autoSizeMinTextSize="24sp" android:autoSizeMaxTextSize="42sp" android:autoSizeStepGranularity="1sp"/>
+</LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+    <TextView android:id="@+id/overview_month" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center_vertical" android:textColor="@color/obs_ink" android:textSize="13sp" android:clickable="true" android:focusable="true" android:background="?attr/selectableItemBackground"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/balance_month_scope" android:textSize="10sp" android:textColor="@color/obs_muted"/>
+</LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:baselineAligned="false">
+    <LinearLayout android:id="@+id/overview_expense_card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp" android:orientation="vertical" android:background="@drawable/obs_card" android:padding="16dp" android:clickable="true" android:focusable="true">
+        <TextView android:id="@+id/overview_expense_label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/overview_expense_month" android:textSize="11sp" android:textColor="@color/obs_muted"/>
+        <TextView android:id="@+id/overview_expense" android:layout_width="match_parent" android:layout_height="46dp" android:gravity="center_vertical" android:textSize="21sp" android:textColor="@color/obs_ink" android:fontFamily="sans-serif-medium" android:maxLines="1" android:autoSizeTextType="uniform" android:autoSizeMinTextSize="13sp" android:autoSizeMaxTextSize="21sp"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/overview_expense_note" android:textSize="10sp" android:textColor="@color/obs_muted"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" android:orientation="vertical" android:background="@drawable/obs_mint_tile" android:padding="16dp">
+        <TextView android:id="@+id/overview_surplus_label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/overview_surplus_month" android:textSize="11sp" android:textColor="@color/obs_muted"/>
+        <TextView android:id="@+id/overview_net" android:layout_width="match_parent" android:layout_height="46dp" android:gravity="center_vertical" android:textSize="21sp" android:textColor="@color/obs_green" android:fontFamily="sans-serif-medium" android:maxLines="1" android:autoSizeTextType="uniform" android:autoSizeMinTextSize="13sp" android:autoSizeMaxTextSize="21sp"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/overview_surplus_note" android:textSize="10sp" android:textColor="@color/obs_muted"/>
+    </LinearLayout>
+</LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:orientation="horizontal" android:gravity="center_vertical">
+    <TextView android:id="@+id/overview_income_label" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/overview_income_month" android:textSize="11sp" android:textColor="@color/obs_muted"/>
+    <TextView android:id="@+id/overview_income" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="11sp" android:textColor="@color/obs_green" android:clickable="true" android:focusable="true" android:background="?attr/selectableItemBackground"/>
+</LinearLayout>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/overview_review" android:text="待核对" style="@style/PreviewButton" android:background="@drawable/obs_callout" android:layout_marginTop="1dp" android:layout_marginBottom="24dp">
+</Button>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+<TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="最近账单" android:textSize="15sp" android:textColor="@color/obs_ink" android:layout_weight="1">
+</TextView>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/overview_bills" android:text="全部账单 ›" style="@style/PreviewButton">
+</Button>
+</LinearLayout>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/overview_empty" android:textSize="12sp" android:textColor="@color/obs_muted" android:paddingVertical="20dp" android:id="@+id/overview_empty">
+</TextView>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/overview_categories">
+</LinearLayout>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/overview_comparison" android:visibility="gone">
+</TextView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="12sp" android:textColor="@color/obs_red" android:id="@+id/overview_error">
+</TextView>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/ledger_add" android:visibility="gone">
+</Button>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/overview_previous" android:visibility="gone">
+</Button>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/overview_next" android:visibility="gone">
+</Button>
+</LinearLayout>
+</ScrollView>

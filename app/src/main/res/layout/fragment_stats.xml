@@ -1,0 +1,76 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:scrollbars="none">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="21dp" android:paddingTop="14dp" android:paddingBottom="24dp">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="22dp" android:minHeight="39dp">
+<TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="统计" android:textSize="25sp" android:textColor="@color/obs_ink" android:fontFamily="sans-serif-medium" android:layout_weight="1">
+</TextView>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/stats_dates" android:text="自选日期" style="@style/PreviewButton">
+</Button>
+</LinearLayout>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="13sp" android:textColor="@color/obs_ink" android:minHeight="48dp" android:gravity="center_vertical" android:id="@+id/stats_month">
+</TextView>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:background="@drawable/bg_entry_segment">
+<Button android:layout_width="0dp" android:layout_height="wrap_content" android:background="@drawable/bg_preview_selection" android:backgroundTint="@null" android:id="@+id/stats_expense" android:text="支出" style="@style/PreviewButton" android:layout_weight="1">
+</Button>
+<Button android:layout_width="0dp" android:layout_height="wrap_content" android:background="@drawable/bg_preview_selection" android:backgroundTint="@null" android:id="@+id/stats_income" android:text="收入" style="@style/PreviewButton" android:layout_weight="1">
+</Button>
+</LinearLayout>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="12sp" android:textColor="@color/obs_red" android:id="@+id/stats_error">
+</TextView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="10sp" android:textColor="@color/obs_muted" android:layout_marginTop="22dp" android:id="@+id/stats_scope">
+</TextView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="42sp" android:textColor="@color/obs_ink" android:layout_marginTop="8dp" android:fontFamily="sans-serif-medium" android:id="@+id/stats_total">
+</TextView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="12sp" android:textColor="@color/obs_muted" android:layout_marginTop="14dp" android:id="@+id/stats_comparison">
+</TextView>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/obs_card" android:padding="16dp" android:layout_marginTop="16dp">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+<TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="消费趋势" android:textSize="15sp" android:textColor="@color/obs_ink" android:layout_weight="1">
+</TextView>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_preview_selection" android:backgroundTint="@null" android:id="@+id/stats_six" android:text="近半年" style="@style/PreviewButton">
+</Button>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_preview_selection" android:backgroundTint="@null" android:id="@+id/stats_twelve" android:text="近一年" style="@style/PreviewButton">
+</Button>
+</LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="查看分类" android:textSize="12sp" android:textColor="@color/obs_muted">
+</TextView>
+<Spinner android:layout_width="0dp" android:layout_height="48dp" android:id="@+id/stats_category" android:layout_weight="1">
+</Spinner>
+</LinearLayout>
+<TextView android:id="@+id/stats_trend_current" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/obs_muted" android:paddingVertical="10dp"/>
+<com.example.budgetapp.ui.stats.BudgetChartView android:layout_width="match_parent" android:layout_height="190dp" android:id="@+id/stats_trend_chart">
+</com.example.budgetapp.ui.stats.BudgetChartView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_chart_help" android:clickable="true" android:focusable="true" android:minHeight="48dp" android:gravity="center_vertical" android:text="单位：元 · 点按月份查看明细" android:textSize="10sp" android:textColor="@color/obs_muted">
+</TextView>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/stats_trend_values" android:visibility="gone">
+</LinearLayout>
+</LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/stats_category_section" android:background="@drawable/obs_card" android:padding="16dp" android:layout_marginTop="16dp">
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="分类占比 · 全部分类" android:textSize="15sp" android:textColor="@color/obs_ink">
+</TextView>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/overview_empty" android:textSize="12sp" android:textColor="@color/obs_muted" android:id="@+id/stats_category_empty">
+</TextView>
+<com.example.budgetapp.ui.stats.BudgetChartView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_category_chart" android:visibility="gone">
+</com.example.budgetapp.ui.stats.BudgetChartView>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/stats_category_values">
+</LinearLayout>
+</LinearLayout>
+<TextView android:id="@+id/stats_changes" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="@drawable/obs_card" android:padding="16dp" android:textSize="12sp" android:textColor="@color/obs_ink" android:lineSpacingExtra="5dp"/>
+<Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_provider" android:visibility="gone">
+</Spinner>
+<Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_metric" android:visibility="gone">
+</Spinner>
+<EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_start" android:visibility="gone">
+</EditText>
+<EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_end" android:visibility="gone">
+</EditText>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_apply" android:visibility="gone">
+</Button>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_month_mode" android:visibility="gone">
+</Button>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_previous" android:visibility="gone">
+</Button>
+<Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/stats_next" android:visibility="gone">
+</Button>
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 支出/收入两个选项 -->
+    <style name="EntryKindOption">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/bg_entry_segment_item</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#355D44</item>
+    </style>
+
+    <!-- 日期、商家、备注所在行 -->
+    <style name="EntryFieldRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!-- 每行左边的标签 -->
+    <style name="EntryFieldLabel">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#76826D</item>
+    </style>
+
+    <!-- 去掉系统输入框下划线，由外面的分隔线统一绘制 -->
+    <style name="EntryFieldInput">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#4B6540</item>
+        <item name="android:textColorHint">#B0BBAA</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="EntryDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#E9EEE3</item>
+    </style>
+
+</resources>

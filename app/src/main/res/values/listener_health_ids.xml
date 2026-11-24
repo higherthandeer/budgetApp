@@ -1,0 +1,6 @@
+<resources>
+    <item name="settings_listener_permission" type="id"/>
+    <item name="settings_listener_connection" type="id"/>
+    <item name="settings_listener_history" type="id"/>
+    <item name="settings_listener_error" type="id"/>
+</resources>

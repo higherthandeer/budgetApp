@@ -1,0 +1,9 @@
+<resources>
+    <string name="entry_category_expense">支出分类</string>
+    <string name="entry_category_income">收入分类</string>
+    <string name="entry_category_add">＋ 新增分类</string>
+    <string name="entry_category_create_title">新增%1$s分类</string>
+    <string name="entry_category_create_use">创建并使用</string>
+    <string name="entry_category_choose_icon">选择图标：%1$s</string>
+    <string name="entry_category_created">已添加并选择“%1$s”</string>
+</resources>

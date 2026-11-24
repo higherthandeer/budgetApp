@@ -1,0 +1,12 @@
+<resources>
+    <color name="obs_paper">#FBFCF9</color>
+    <color name="obs_ink">#24372F</color>
+    <color name="obs_muted">#7A857D</color>
+    <color name="obs_line">#E9EDE6</color>
+    <color name="obs_green">#355D44</color>
+    <color name="entry_title_green">#24372F</color>
+    <color name="obs_mint">#E8F0DF</color>
+    <color name="obs_amber">#8B682E</color>
+    <color name="obs_amber_bg">#FFF5E3</color>
+    <color name="obs_white">#FFFFFF</color>
+<color name="obs_red">#B34E43</color><color name="obs_income">#527C45</color></resources>

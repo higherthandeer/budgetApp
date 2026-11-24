@@ -1,0 +1,1 @@
+{"formatVersion":1,"synthetic":true,"templates":[{"id":"synthetic-receipt","version":1,"provider":"WECHAT","packageName":"com.tencent.mm","appVersions":["test-1"],"channels":["test-trade"],"title":"合成交易凭证","bodyPrefix":"合成凭证","anchors":{"amount":"实付:","currency":"币种:","kind":"方向:","status":"状态:","date":"成交日期:","merchant":"商家:"}}]}

@@ -1,0 +1,6 @@
+Material Symbols Rounded
+Copyright Google LLC
+Apache License 2.0, included in material-symbols-LICENSE.txt
+Source: https://github.com/google/material-design-icons
+Revision: 10ecc14790612ca8fd164e3f4ffe9c16fc50d5b7
+121 icons converted from official 24px SVG to Android VectorDrawable; coordinates translated to a positive viewport.

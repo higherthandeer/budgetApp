@@ -1,0 +1,8 @@
+<resources>
+<string name="category_create_title">新增类别</string>
+<string name="category_create_save">保存</string>
+<string name="category_name_hint">类别名称，最多30个字</string>
+<string name="category_name_invalid">请输入1至30个字的类别名称</string>
+<string name="category_name_exists">该收支类型下已有同名类别</string>
+<string name="category_flow_label">%1$s · %2$s</string>
+<string name="entry_saved">账单已保存</string></resources>

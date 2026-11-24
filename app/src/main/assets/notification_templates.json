@@ -1,0 +1,21 @@
+{
+  "formatVersion": 1,
+  "templates": [
+    {
+      "id": "wechat-8.0.76-paid-summary",
+      "version": 5,
+      "parserType": "WECHAT_PAYMENT_SUMMARY",
+      "provider": "WECHAT",
+      "packageName": "com.tencent.mm",
+      "bodyPrefix": "微信支付：已支付"
+    },
+    {
+      "id": "alipay-12.12.12.8000-expense-reminder",
+      "version": 3,
+      "parserType": "ALIPAY_EXPENSE_REMINDER",
+      "provider": "ALIPAY",
+      "packageName": "com.eg.android.AlipayGphone",
+      "bodyPrefix": "你有一笔"
+    }
+  ]
+}

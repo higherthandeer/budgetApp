@@ -1,0 +1,4 @@
+<resources>
+    <item name="notification_replay_button" type="id"/>
+    <item name="notification_replay_result" type="id"/>
+</resources>

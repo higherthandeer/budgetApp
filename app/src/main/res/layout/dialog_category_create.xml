@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="24dp" android:paddingTop="12dp" android:paddingBottom="8dp">
+    <RadioGroup android:id="@+id/category_flow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:checkedButton="@id/category_flow_expense">
+        <RadioButton android:id="@+id/category_flow_expense" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:text="@string/entry_expense"/>
+        <RadioButton android:id="@+id/category_flow_income" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:text="@string/entry_income"/>
+    </RadioGroup>
+    <EditText android:id="@+id/category_name_input" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:layout_marginTop="12dp" android:inputType="textCapSentences" android:singleLine="true" android:maxLength="30" android:hint="@string/category_name_hint" android:textColor="@color/obs_ink" android:textSize="16sp"/>
+    <com.google.android.material.button.MaterialButton android:id="@+id/category_icon_choose" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:text="选择图标" android:layout_marginTop="12dp" />
+</LinearLayout>

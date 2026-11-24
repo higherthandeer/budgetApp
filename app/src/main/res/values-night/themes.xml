@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BudgetApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/obs_green</item>
+        <item name="colorOnPrimary">@color/obs_white</item>
+        <item name="colorSurface">@color/obs_paper</item>
+        <item name="android:windowBackground">@color/obs_paper</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>

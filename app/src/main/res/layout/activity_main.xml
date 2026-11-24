@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/observation_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/obs_paper"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="22dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="28dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/obs_green_tile"
+                    android:importantForAccessibility="no"
+                    android:padding="8dp"
+                    android:src="@drawable/obs_book" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/ObservationRowTitle"
+                        android:text="@string/app_name"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        style="@style/ObservationBody"
+                        android:text="@string/local_private"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/ObservationTitle"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="22dp"
+                android:text="@string/capture_settings" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/obs_mint_tile"
+                    android:importantForAccessibility="no"
+                    android:padding="12dp"
+                    android:src="@drawable/obs_lock" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/ObservationRowTitle"
+                        android:text="@string/privacy_title"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/ObservationBody"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/privacy_subtitle" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/ObservationSection"
+                android:text="@string/automatic_capture" />
+
+            <LinearLayout style="@style/ObservationCard">
+
+                <LinearLayout
+                    android:id="@+id/permission_row"
+                    style="@style/ObservationRow"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/ObservationRowTitle"
+                            android:text="@string/permission_title" />
+
+                        <TextView
+                            style="@style/ObservationBody"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/permission_description" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/permission_value"
+                        style="@style/ObservationValue"
+                        android:text="@string/permission_off" />
+
+                    <TextView
+                        style="@style/ObservationValue"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/chevron"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+                <View style="@style/ObservationDivider" />
+
+                <LinearLayout style="@style/ObservationRow">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/ObservationRowTitle"
+                            android:text="@string/service_title" />
+
+                        <TextView
+                            android:id="@+id/service_description"
+                            style="@style/ObservationBody"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/service_description_off" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/service_state"
+                        style="@style/ObservationValue"
+                        android:background="@drawable/obs_pill"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="7dp"
+                        android:text="@string/service_paused" />
+                </LinearLayout>
+
+                <View style="@style/ObservationDivider" />
+
+                <LinearLayout
+                    android:id="@+id/recheck_row"
+                    style="@style/ObservationRow"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/ObservationRowTitle"
+                            android:text="@string/recheck_title" />
+
+                        <TextView
+                            style="@style/ObservationBody"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/recheck_description" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/ObservationValue"
+                        android:text="@string/chevron"
+                        android:textSize="22sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/ObservationBody"
+                android:layout_marginTop="13dp"
+                android:paddingHorizontal="3dp"
+                android:text="@string/capture_limit" />
+
+            <TextView
+                android:id="@+id/diagnostics_heading"
+                style="@style/ObservationSection"
+                android:text="@string/observation_title"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/diagnostics_card"
+                style="@style/ObservationCard"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/diagnostics_entry"
+                    style="@style/ObservationRow"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/ObservationRowTitle"
+                            android:text="@string/diagnostics_title" />
+
+                        <TextView
+                            style="@style/ObservationBody"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/diagnostics_description" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/ObservationValue"
+                        android:text="@string/open_diagnostics" />
+
+                    <TextView
+                        style="@style/ObservationValue"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/chevron"
+                        android:textSize="22sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/ObservationSection"
+                android:text="@string/session_status" />
+
+            <LinearLayout style="@style/ObservationCard">
+
+                <LinearLayout style="@style/ObservationRow">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/ObservationRowTitle"
+                            android:text="@string/sample_title" />
+
+                        <TextView
+                            android:id="@+id/sample_description"
+                            style="@style/ObservationBody"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/no_session" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/sample_count"
+                        style="@style/ObservationValue" />
+                </LinearLayout>
+
+                <View style="@style/ObservationDivider" />
+
+                <LinearLayout style="@style/ObservationRow">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/ObservationRowTitle"
+                            android:text="@string/memory_title" />
+
+                        <TextView
+                            style="@style/ObservationBody"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/memory_description" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/ObservationValue"
+                        android:text="@string/not_saved" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/obs_callout"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/ObservationRowTitle"
+                    android:text="@string/phase_title"
+                    android:textColor="@color/obs_amber" />
+
+                <TextView
+                    style="@style/ObservationBody"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/phase_description" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ObservationBody"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/phase_footer"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/app_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/ledger_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/global_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                android:contentDescription="@string/ledger_add"
+                android:src="@android:drawable/ic_input_add" />
+        </FrameLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/obs_white" />
+    </LinearLayout>
+</FrameLayout>

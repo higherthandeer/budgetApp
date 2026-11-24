@@ -1,0 +1,39 @@
+<resources>
+    <style name="ObservationTitle">
+        <item name="android:layout_width">match_parent</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/obs_ink</item><item name="android:textSize">26sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="ObservationSection">
+        <item name="android:layout_width">match_parent</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item><item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">@color/obs_muted</item><item name="android:textSize">12sp</item>
+    </style>
+    <style name="ObservationRowTitle">
+        <item name="android:layout_width">wrap_content</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/obs_ink</item><item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="ObservationBody">
+        <item name="android:layout_width">match_parent</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/obs_muted</item><item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+    <style name="ObservationValue">
+        <item name="android:layout_width">wrap_content</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/obs_green</item><item name="android:textSize">12sp</item>
+    </style>
+    <style name="ObservationCard">
+        <item name="android:layout_width">match_parent</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item><item name="android:background">@drawable/obs_card</item>
+    </style>
+    <style name="ObservationRow">
+        <item name="android:layout_width">match_parent</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">76dp</item><item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item><item name="android:padding">16dp</item>
+    </style>
+    <style name="ObservationDivider">
+        <item name="android:layout_width">match_parent</item><item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginHorizontal">16dp</item><item name="android:background">@color/obs_line</item>
+    </style>
+</resources>
